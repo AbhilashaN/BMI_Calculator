@@ -22,6 +22,7 @@ public class MainActivity extends Activity {
 		final EditText e2 = (EditText) findViewById(R.id.et2);
 		final TextView tv4 = (TextView) findViewById(R.id.tv4);
 		Button b1 =(Button)findViewById(R.id.ib1);
+		//when button clicked
          b1.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -29,7 +30,7 @@ public class MainActivity extends Activity {
 				
 				String str1 = e1.getText().toString();
 				String str2 = e2.getText().toString();
-				
+				//display error message if no text entered
 				if(TextUtils.isEmpty(str1)){
 					e1.setError("Please enter your weight");
 					e1.requestFocus();
@@ -48,21 +49,15 @@ public class MainActivity extends Activity {
 				  float bmiValue = calculateBMI(weight, height);
 				  
 				  String bmiInterpretation = interpretBMI(bmiValue);
-				  
-				  
 				tv4.setText(String.valueOf(bmiValue + "-" + bmiInterpretation));
-				
-				
+	
 			}
 		});
-         
-         
-         
-         
+
 	}
 	
 	 private float calculateBMI (float weight, float height) {
-
+		//calculate BMI
 	     return (float) (weight / (height * height));
 	    }
 
